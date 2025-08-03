@@ -1,17 +1,17 @@
-// Last updated: 8/2/2025, 10:39:10 PM
+// Last updated: 8/3/2025, 8:52:12 PM
 class Solution {
-    public int majorityElement(int[] arr) {
-       int cand = 0;
-       int count = 0;
-       for(int i=0;i < arr.length;i++){
-            if (count == 0){
-                cand = arr[i];
+    public int majorityElement(int[] nums) {
+        int cand = 0;
+        int count = 0;
+        for (int i = 0;i < nums.length ;i++){
+            if(count == 0){
+                cand = nums[i];
             }
-            if(cand == arr[i]){
+            if (cand == nums[i]){
                 count++;
             }
             else count--;
-       } 
-       return cand;
+        }
+        return cand;
     }
 }
