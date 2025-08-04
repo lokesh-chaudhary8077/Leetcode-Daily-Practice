@@ -1,17 +1,19 @@
-// Last updated: 8/3/2025, 8:52:12 PM
+// Last updated: 8/4/2025, 11:53:23 PM
+import java.util.*;
 class Solution {
     public int majorityElement(int[] nums) {
-        int cand = 0;
-        int count = 0;
-        for (int i = 0;i < nums.length ;i++){
-            if(count == 0){
-                cand = nums[i];
-            }
-            if (cand == nums[i]){
-                count++;
-            }
-            else count--;
+       HashMap<Integer,Integer> map = new HashMap<>();
+       int n = nums.length;
+       for(int i : nums){
+        if(map.containsKey(i)){
+            map.put(i,map.get(i)+1);
+        } else {
+            map.put(i , 1);
         }
-        return cand;
+        if(map.get(i) > n / 2){
+            return i;
+        }
+       }
+       return -1; 
     }
 }
