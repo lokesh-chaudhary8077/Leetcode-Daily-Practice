@@ -1,24 +1,33 @@
-// Last updated: 8/12/2025, 9:55:02 PM
+// Last updated: 8/12/2025, 11:25:17 PM
 class Solution {
-    public int threeSumClosest(int[] nums, int target) {
-       int n = nums.length;
-       Arrays.sort(nums);
-       int closetSum = nums[0] + nums[1] + nums[2];
-       for(int i = 0; i < n;i++){
-        int j = i + 1;
-        int k = n - 1;
-        while(j < k){
-        int currentSum = nums[i] + nums[j] + nums[k];
-        if(currentSum == target) return currentSum;
-        if(Math.abs(currentSum - target) < Math.abs(closetSum - target)){
-            closetSum = currentSum;
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        int n = nums.length;
+        for(int i = 0;i < n;i++){
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
+            for(int j = i + 1;j < n;j++){
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                int p = j + 1;
+                int q = n - 1;
+                while(p < q){
+                    long sum = (long) nums[i] + nums[j] + nums[p] + nums[q];
+                    if(sum < target){
+                        p++;
+                    }
+                    else if(sum > target){
+                        q--;
+                    }
+                    else {
+                        ans.add(Arrays.asList(nums[i] , nums[j] , nums[p] , nums[q]));
+                        p++;
+                        q--;
+                        while (p < q && nums[p] == nums[p - 1]) p++;
+                        while (p < q && nums[q] == nums[q + 1]) q--;
+                    }
+                }
+            }
         }
-        if(currentSum < target){
-            j++;
-        }
-        else k--;
-        }
-       } 
-       return closetSum;
+        return ans;
     }
 }
