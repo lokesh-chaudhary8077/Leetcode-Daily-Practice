@@ -1,33 +1,35 @@
-// Last updated: 8/5/2025, 11:26:47 PM
+// Last updated: 8/20/2025, 10:40:48 PM
 class Solution {
-    public List<Integer> spiralOrder(int[][] arr) {
-      List<Integer> ans = new ArrayList<>();
-      if  (arr == null || arr.length == 0) return ans;
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> ans = new ArrayList<>();
+        if(matrix == null || matrix.length == 0){
+            return ans;
+        }
         int minr = 0;
         int minc = 0;
-        int maxr = arr.length - 1;
-        int maxc = arr[0].length - 1;
-        int c = 0;
-        int t = arr.length*arr[0].length;
-        while( c < t){
-            for(int i = minc;i <= maxc && c<t;i++){
-                ans.add(arr[minr][i]);
-                c++;
+        int maxr = matrix.length - 1;
+        int maxc = matrix[0].length - 1;
+        int count = 0;
+        int total = matrix[0].length * matrix.length;
+        while(count < total){
+            for (int i = minc;i <= maxc && count < total;i++){
+                ans.add(matrix[minr][i]);
+                count++;
             }
             minr++;
-            for(int i = minr ;i <= maxr && c<t;i++){
-                 ans.add(arr[i][maxc]);
-                 c++;
+            for (int i = minr;i <= maxr && count < total;i++){
+                ans.add(matrix[i][maxc]);
+                count++;
             }
             maxc--;
-            for(int i = maxc;i >= minc  && c<t;i--){
-                 ans.add(arr[maxr][i]);
-                 c++;
-            } 
+            for (int i = maxc;i >= minc && count < total;i--){
+                ans.add(matrix[maxr][i]);
+                count++;
+            }
             maxr--;
-            for(int i = maxr;i >= minr && c<t;i--){
-               ans.add(arr[i][minc]);
-                 c++;
+            for (int i = maxr;i >= minr && count <total;i--){
+                ans.add(matrix[i][minc]);
+                count++;
             }
             minc++;
         }
