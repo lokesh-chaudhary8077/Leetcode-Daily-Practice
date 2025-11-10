@@ -1,4 +1,4 @@
-// Last updated: 11/10/2025, 9:45:13 PM
+// Last updated: 11/10/2025, 9:50:49 PM
 class Solution {
     public void sortColors(int[] nums) {
         int n = nums.length;
@@ -7,20 +7,22 @@ class Solution {
        int iteration = 0;
        while( iteration <= right){
         if(nums[iteration] == 0){
-            int temp = nums[iteration];
-            nums[iteration] = nums[left];
-            nums[left] = temp;
+            swap(nums,iteration,left);
             iteration++;
             left++;
         }else if(nums[iteration] == 2){
-            int temp = nums[iteration];
-            nums[iteration] = nums[right];
-            nums[right] = temp;
+            swap(nums,iteration,right);
             right--;
         }
         else{
             iteration++;
         }
        }
+    }
+    public static void swap(int nums[],int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    
     }
 }
