@@ -1,40 +1,17 @@
-// Last updated: 11/11/2025, 8:43:35 PM
+// Last updated: 11/11/2025, 9:31:22 PM
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
-      List<Integer> result = new ArrayList<>();
-      if(matrix == null || matrix.length == 0){
-        return result;
-      }
-      int minr = 0;
-      int minc = 0;
-      int maxr = matrix.length-1;
-      int maxc = matrix[0].length - 1;
-      int count = 0;
-      int total = matrix[0].length*matrix.length;
-      while(count < total){
-        for(int i = minc;i <= maxc && count < total;i++){
-            result.add(matrix[minr][i]);
-            count++;
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int row = 0;
+        int column = matrix[0].length - 1;
+        while(row < matrix.length && column >= 0){
+            if(target == matrix[row][column]){
+                return true;
+            }
+            else if(target < matrix[row][column]){
+                column--;
+            }
+            else row++;
         }
-        minr++;
-
-        for(int i = minr;i <= maxr && count < total;i++){
-            result.add(matrix[i][maxc]);
-            count++;
-        }
-        maxc--;
-        for(int i = maxc;i>= minc && count < total;i--){
-            result.add(matrix[maxr][i]);
-            count++;
-        }
-        maxr--;
-        for(int i = maxr;i >= minr &&count < total;i--){
-            result.add(matrix[i][minc]);
-            count++;
-        }
-        minc++;
-      }
-      return result;
-      
+        return false;
     }
 }
