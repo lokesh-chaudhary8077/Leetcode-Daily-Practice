@@ -1,16 +1,16 @@
-// Last updated: 8/2/2025, 10:39:18 PM
+// Last updated: 11/13/2025, 10:39:14 PM
 class Solution {
-    public boolean isPalindrome(String s) {
-        s = s.toLowerCase().replaceAll("[^a-z0-9]","");
-        int left = 0;
-        int right = s.length() - 1;
-        while(left < right){
-            if(s.charAt(left) != s.charAt(right)){
-                return false;
-            }
-            left++;
-            right--;
+    public String capitalizeTitle(String title) {
+       String words[] = title.toLowerCase().split(" ");
+       StringBuilder sb = new  StringBuilder("");
+       for(int i = 0;i < words.length;i++){
+        String w = words[i];
+        if(w.length() > 2){
+            sb.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1));
         }
-        return true;
+        else sb.append(w);
+        if(i < words.length - 1) sb.append(' ');
+       }
+       return sb.toString();
     }
 }
