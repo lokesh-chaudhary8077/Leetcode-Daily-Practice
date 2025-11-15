@@ -1,4 +1,4 @@
-// Last updated: 11/14/2025, 11:13:38 PM
+// Last updated: 11/15/2025, 8:20:58 PM
 class Solution {
     public String countAndSay(int n) {
        if(n == 1) return "1";
