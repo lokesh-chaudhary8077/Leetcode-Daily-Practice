@@ -1,21 +1,28 @@
-// Last updated: 1/13/2026, 9:04:22 PM
+// Last updated: 1/13/2026, 10:09:58 PM
 1class Solution {
-2    public String mergeAlternately(String word1, String word2) {
-3        StringBuilder sb = new StringBuilder();
-4       int l1 = word1.length();
-5       int l2 = word2.length();
-6       int i = 0;
-7       int j  = 0;
-8       while(i < l1 && j < l2){
-9            sb.append(word1.charAt(i++));
-10            sb.append(word2.charAt(j++));
-11       }
-12       while(i < l1){
-13            sb.append(word1.charAt(i++));
-14       }
-15       while(j < l2){
-16            sb.append(word2.charAt(j++));
-17       }
-18       return sb.toString();
-19    }
-20}
+2    public String reverseVowels(String s) {
+3        char[] arr = s.toCharArray();
+4        int i = 0;
+5        int j = arr.length - 1;
+6        while(i < j){
+7            if(isVowel(arr[i]) && isVowel(arr[j])){
+8                char ch = arr[i];
+9                arr[i] = arr[j];
+10                arr[j] = ch;
+11                i++;
+12                j--;
+13            }
+14            else if(isVowel(arr[i]) && !isVowel(arr[j])){
+15                j--;
+16            }
+17            else{
+18                i++;
+19            }
+20        }
+21        return new String(arr); 
+22    }
+23    private boolean isVowel(char c){
+24        c = Character.toLowerCase(c);
+25        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ;
+26    }
+27}
