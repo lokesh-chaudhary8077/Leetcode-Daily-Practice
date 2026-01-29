@@ -1,18 +1,20 @@
-// Last updated: 1/29/2026, 9:08:11 PM
+// Last updated: 1/29/2026, 9:53:25 PM
 1class Solution {
-2    public int majorityElement(int[] nums) {
-3      int count = 0;
-4      int candidate = 0;
-5      for(int i = 0;i < nums.length;i++){
-6        if(count == 0){
-7            candidate = nums[i];
-8        } 
-9        if(nums[i] == candidate){
-10            count++;
-11        }else {
-12            count--;
-13        }
-14      }
-15      return candidate;  
-16    }
-17}
+2    public int[] rearrangeArray(int[] nums) {
+3        int n = nums.length;
+4        int p = 0;
+5        int ne = 1;
+6        int ans[] = new int[n];
+7        for(int i = 0;i < n;i++){
+8            if(nums[i] > 0){
+9                ans[p] = nums[i];
+10                p += 2;
+11            }
+12            else{
+13                ans[ne] = nums[i];
+14                ne += 2;
+15            }
+16        }
+17        return ans;
+18    }
+19}
