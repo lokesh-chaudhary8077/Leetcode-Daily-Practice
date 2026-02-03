@@ -1,15 +1,15 @@
-// Last updated: 8/15/2025, 8:13:43 PM
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int arr[] = {-1,-1};
-        for(int i = 0;i < nums.length;i++){
-            for(int j = i + 1;j < nums.length;j++){
-                if(nums[i] + nums[j] == target){
-                    arr[0] = i;
-                    arr[1] = j;
-                }
-            }
-        }
-        return arr;
-    }
-}
+// Last updated: 2/3/2026, 8:17:22 PM
+1class Solution {
+2    public int[] twoSum(int[] nums, int target) {
+3        int arr[] = {-1,-1};
+4        for(int i = 0;i < nums.length;i++){
+5            for(int j = i + 1;j < nums.length;j++){
+6                if(nums[i] + nums[j] == target){
+7                    arr[0] = i;
+8                    arr[1] = j;
+9                }
+10            }
+11        }
+12        return arr;
+13    }
+14}
