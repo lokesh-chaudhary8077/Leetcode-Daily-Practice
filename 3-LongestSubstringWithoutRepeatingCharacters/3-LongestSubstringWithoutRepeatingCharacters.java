@@ -1,4 +1,4 @@
-// Last updated: 1/20/2026, 9:39:35 PM
+// Last updated: 2/11/2026, 11:18:16 PM
 1class Solution {
 2    public int lengthOfLongestSubstring(String s) {
 3        HashSet<Character> set = new HashSet<>();
