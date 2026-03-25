@@ -1,16 +1,19 @@
-// Last updated: 3/25/2026, 11:32:28 PM
+// Last updated: 3/25/2026, 11:42:40 PM
 1class Solution {
-2    public void moveZeroes(int[] nums) {
-3        int si = 0;
-4        int n = 0;
-5        while(si < nums.length){
-6            if(nums[si] != 0){
-7                int temp = nums[n];
-8                nums[n] = nums[si];
-9                nums[si] = temp;
-10                n++;
+2    public int findNumbers(int[] nums) {
+3        
+4        int even = 0;
+5        for(int i = 0;i < nums.length;i++){
+6            int count = 0;
+7            int n = nums[i];
+8            while(n  >0){
+9                n = n / 10;
+10                count++;
 11            }
-12            si++;
-13        }
-14    }
-15}
+12            if(count % 2 == 0){
+13                even++;
+14            }
+15        }
+16        return even;
+17    }
+18}
