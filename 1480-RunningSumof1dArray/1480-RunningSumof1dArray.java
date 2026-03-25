@@ -1,12 +1,15 @@
-// Last updated: 3/25/2026, 9:36:47 PM
+// Last updated: 3/25/2026, 9:44:01 PM
 1class Solution {
-2    public int[] runningSum(int[] nums) {
-3     int arr[] = new int[nums.length];
-4     int sum = 0;
-5     for(int i = 0;i < nums.length;i++){
-6        sum += nums[i]; 
-7        arr[i] = sum;
-8     }
-9     return arr;   
-10    }
-11}
+2    public int maximumWealth(int[][] accounts) {
+3      int sum = 0;
+4      int max = 0;
+5      for(int i = 0;i < accounts.length;i++){
+6        for(int j = 0;j < accounts[0].length;j++){
+7            sum += accounts[i][j];
+8        }
+9        max = Math.max(max,sum);
+10        sum = 0;
+11      }
+12      return max;  
+13    }
+14}
