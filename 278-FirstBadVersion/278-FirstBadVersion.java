@@ -1,20 +1,23 @@
-// Last updated: 8/2/2025, 10:39:13 PM
-/* The isBadVersion API is defined in the parent class VersionControl.
-      boolean isBadVersion(int version); */
-
-public class Solution extends VersionControl {
-    public int firstBadVersion(int n) {
-    int l = 0;
-    int h = n;
-    int ans = 0;
-    while(l <= h){
-        int mid = (l + (h - l)/2);
-        if(isBadVersion(mid) == true){
-            ans = mid;
-            h = mid - 1;
-        }
-        else l = mid + 1;
-    } 
-    return ans;
-    }
-}
+// Last updated: 3/26/2026, 9:32:17 PM
+1/* The isBadVersion API is defined in the parent class VersionControl.
+2      boolean isBadVersion(int version); */
+3
+4public class Solution extends VersionControl {
+5    public int firstBadVersion(int n) {
+6        int si = 1;
+7        int ei = n;
+8        int ans = 0;
+9        while(si <= ei){
+10             int mid = si + (ei - si) / 2;
+11            if(isBadVersion(mid)){
+12                ei = mid - 1;
+13                ans = mid;
+14            }
+15            else {
+16                si = mid + 1;
+17            }
+18        }
+19        return ans;
+20        
+21    }
+22}
