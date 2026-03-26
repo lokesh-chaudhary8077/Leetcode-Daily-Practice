@@ -1,17 +1,23 @@
-// Last updated: 3/26/2026, 11:24:56 PM
+// Last updated: 3/26/2026, 11:55:41 PM
 1class Solution {
-2    public int peakIndexInMountainArray(int[] arr) {
-3        int si = 0;
-4        int ei = arr.length -1;
-5        while(si < ei){
-6            int mid = si + (ei - si) /2;
-7            if(arr[mid] < arr[mid + 1]){
-8                si = mid + 1;
-9            }
-10            else {
-11                ei = mid;
-12            }
-13        }
-14        return si;
-15    }
-16}
+2    public int singleNonDuplicate(int[] nums) {
+3        int n = nums.length;
+4        if(n == 1) return nums[0];
+5        if(nums[0] != nums[1]) return nums[0];
+6        if(nums[n-1] != nums[n-2]) return nums[n-1];
+7        int si = 1;
+8        int ei = n-2;
+9        while(si < ei){
+10            int mid = (si + ei) /2;
+11            if(mid % 2 == 1) mid--;
+12            if(nums[mid] == nums[mid + 1]){
+13                si = mid + 2;
+14            }
+15            else {
+16                ei = mid;
+17            }
+18        }
+19        return nums[si];
+20
+21    }
+22}
