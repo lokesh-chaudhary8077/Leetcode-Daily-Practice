@@ -1,19 +1,12 @@
-// Last updated: 11/10/2025, 5:33:34 PM
-class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-      int i = m - 1;
-      int j = n - 1;
-      int k = m + n -1;
-      while(i >= 0 && j >= 0){
-        if(nums1[i] < nums2[j]){
-            nums1[k--] = nums2[j--];
-        }
-        else {
-            nums1[k--] = nums1[i--];
-        }
-      }  
-      while(j >= 0){
-        nums1[k--] = nums2[j--];
-      }
-    }
-}
+// Last updated: 3/31/2026, 1:40:46 PM
+1class Solution {
+2    public int[] sortedSquares(int[] nums) {
+3        int n = nums.length;
+4        int []arr = new int[n];
+5        for(int i = 0;i < n;i++){
+6            arr[i] = nums[i] * nums[i];
+7        }
+8        Arrays.sort(arr);
+9        return arr;
+10    }
+11}
